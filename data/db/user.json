@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "internshipId": 101412,
+      "password":"123",
+      "name": "Duy Binh",
+      "birthDay": "03/05/1999",
+      "dateInternship": "14/06/1999"
+    },
+    {
+        "id": 2,
+        "internshipId": 123456,
+        "password":"456",
+        "name": "Duy",
+        "birthDay": "01/06/1996",
+        "dateInternship": "14/06/1999"
+      }
+  ]

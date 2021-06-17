@@ -1,0 +1,47 @@
+<div class="form" ng-hide="check_login">
+    <br /><br />
+    <form action="" method="post">
+        <div class="container">
+            <table>
+                <tr>
+                    <td>
+                        <label for="username"><b>Intership Id</b></label>
+                    </td>
+                    <td>
+                        <input type="text" name="internshipId" ng-model="internshipId" >
+                        <button type="button" ng-click="search()">Search</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="pass"><b>Name</b></label>
+                    </td>
+                    <td>
+                        <input type="text" name="name" ng-model="name" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="birthday"><b>Birthday</b></label>
+                    </td>
+                    <td>
+                        <input type="text" name="birthday" ng-model="birthday" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="pass"><b>Ngay vao thuc tap</b></label>
+                    </td>
+                    <td>
+                        <input type="text" name="date" ng-model="date" >
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="button" ng-click="update()">Update</button></td>
+                </tr>
+            </table>
+            
+        </div>
+    </form>
+</div>

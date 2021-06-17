@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <title>Internship</title>
+</head>
+<body>
+    <div class="test" >
+        <div ng-include="'client/views/page/header/header.html'"></div>
+        <div class="clear"></div>
+        <div class="main">
+            <div ng-include="'client/views/page/taskbar/taskbar.html'"></div>
+            <div class="home">
+                <div ui-view></div>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="dist/app.js"></script>
+</body>
+</html>
