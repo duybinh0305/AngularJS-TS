@@ -5,7 +5,7 @@
       "password":"123",
       "name": "Duy Binh",
       "birthDay": "03/05/1999",
-      "dateInternship": "14/06/1999"
+      "dateInternship": "06/14/2021"
     },
     {
         "id": 2,
@@ -13,6 +13,6 @@
         "password":"456",
         "name": "Duy",
         "birthDay": "01/06/1996",
-        "dateInternship": "14/06/1999"
+        "dateInternship": "06/14/2021"
       }
   ]

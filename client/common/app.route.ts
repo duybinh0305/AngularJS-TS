@@ -7,31 +7,32 @@ module app{
             url:'/login',
             templateUrl: '/client/views/page/login/login.html',
             controller:'LoginPageController',
-            controllerAs:'lg'
+            controllerAs:'vm'
         }
-        $stateProvider.state(login);
-        $urlRouterProvider.otherwise('login');
-    }]);
-
-    angularModule.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
-        let home={
-            name: 'home',
-            url:'/home',
-            templateUrl: '/client/views/page/home/home.html',
-            controller:'HomeController',
-            controllerAs:'hm'
+        
+        let mainpage={
+            name: 'mainpage',
+            url:'/mainpage',
+            templateUrl: '/client/views/mainPage.html',
+            controller:'MainPageController',
+            controllerAs:'vm'
         }
-        $stateProvider.state(home);
-    }]);
 
-    angularModule.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
         let edit={
             name: 'edit',
             url:'/edit',
             templateUrl: '/client/views/page/editProfile/edit.html',
-            controller:'EditController',
-            controllerAs:'ed'
+            controller:'EditPageController',
+            controllerAs:'vm'
         }
+
+        
+        $stateProvider.state(login);
+        $stateProvider.state(mainpage);
         $stateProvider.state(edit);
+
+        $urlRouterProvider.otherwise('login');
     }]);
+
+    
 }

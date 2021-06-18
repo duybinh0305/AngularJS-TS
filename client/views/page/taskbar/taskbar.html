@@ -1,6 +1,5 @@
-<div class="taskbar" ng-if="sessionStorage.getItem('user')" >
+<div class="taskbar" ng-show="lg.check_login" >
     <a href="#/home">Home</a><br /><br />
     <a href="#/edit">Edit profile</a><br /><br />
-    <a href="#">Logout</a><br /><br />
-    {{test}}
+    <a href="" ng-click="lg.logout()">Logout</a><br /><br />
 </div>

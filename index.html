@@ -8,17 +8,8 @@
     <title>Internship</title>
 </head>
 <body>
-    <div class="test" >
-        <div ng-include="'client/views/page/header/header.html'"></div>
-        <div class="clear"></div>
-        <div class="main">
-            <div ng-include="'client/views/page/taskbar/taskbar.html'"></div>
-            <div class="home">
-                <div ui-view></div>
-            </div>
-        </div>
-        <div class="footer"></div>
-    </div>
+    
+    <div ui-view></div>
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>

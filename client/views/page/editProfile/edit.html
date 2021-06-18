@@ -1,4 +1,4 @@
-<div class="form" ng-hide="check_login">
+<div class="form" ng-controller="EditPageController">
     <br /><br />
     <form action="" method="post">
         <div class="container">
@@ -8,8 +8,8 @@
                         <label for="username"><b>Intership Id</b></label>
                     </td>
                     <td>
-                        <input type="text" name="internshipId" ng-model="internshipId" >
-                        <button type="button" ng-click="search()">Search</button>
+                        <input type="text" name="internshipId" ng-model="vm.internshipId"  >
+                        <button type="button" ng-click="vm.search()">Search</button>
                     </td>
                 </tr>
                 <tr>
@@ -17,7 +17,7 @@
                         <label for="pass"><b>Name</b></label>
                     </td>
                     <td>
-                        <input type="text" name="name" ng-model="name" >
+                        <input type="text" name="name" ng-model="vm.name" >
                     </td>
                 </tr>
                 <tr>
@@ -25,7 +25,7 @@
                         <label for="birthday"><b>Birthday</b></label>
                     </td>
                     <td>
-                        <input type="text" name="birthday" ng-model="birthday" >
+                        <input type="text" name="birthday" ng-model="vm.birthday" >
                     </td>
                 </tr>
                 <tr>
@@ -33,12 +33,12 @@
                         <label for="pass"><b>Ngay vao thuc tap</b></label>
                     </td>
                     <td>
-                        <input type="text" name="date" ng-model="date" >
+                        <input type="text" name="date" ng-model="vm.date" >
                     </td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><button type="button" ng-click="update()">Update</button></td>
+                    <td><button type="button" ng-click="vm.update()">Update</button></td>
                 </tr>
             </table>
             

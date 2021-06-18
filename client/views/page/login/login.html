@@ -9,7 +9,7 @@
                             <label for="username"><b>Intership Id</b></label>
                         </td>
                         <td>
-                            <input type="text" placeholder="Intership Id" name="internshipId" ng-model="lg.internshipId"
+                            <input type="text" placeholder="Intership Id" name="internshipId" ng-model="vm.internshipId"
                                 required>
                         </td>
                     </tr>
@@ -18,16 +18,16 @@
                             <label for="pass"><b>Password</b></label>
                         </td>
                         <td>
-                            <input type="password" placeholder="Enter Password" name="pass" ng-model="lg.password"
+                            <input type="password" placeholder="Enter Password" name="pass" ng-model="vm.password"
                                 required>
                         </td>
                     </tr>
                     <tr>
                         <td>
-
+                            <button type="button" ng-click="vm.logout()">Logout</button>
                         </td>
                         <td>
-                            <button type="button" ng-click="lg.login()">Login</button>
+                            <button type="button" ng-click="vm.login()">Login</button>
                         </td>
                     </tr>
                 </table>
@@ -36,3 +36,4 @@
         </form>
     </div>
 </div>
+
