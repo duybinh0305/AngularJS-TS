@@ -1,6 +1,24 @@
-<div>Dang nhap thanh cong</div> 
-<div ng-controller="MainPageController">
-    <div>Xin chao: {{vm.name}}</div>
-    <div>nam: {{vm.date}}</div>
-    <div>ban con {{vm.ngayConlai}} ngay nua la het thoi gian thuc tap</div>
+<div class="test">
+    <teamplate-header></teamplate-header>
+    <div class="clear"></div>
+    <div class="main">
+        <teamplate-taskbar></teamplate-taskbar>
+        <div class="home">
+            <div ng-controller="MainPageController">
+                <div>Xin chao: {{vm.name}}</div>
+                <div>Ban con {{vm.ngayConlai}} ngay nua la het thoi gian thuc tap</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
 </div>
+
+
+
+
+
+
+
+
+
+

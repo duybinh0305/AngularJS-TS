@@ -7,13 +7,11 @@ module app{
         private password:string;
         private users:Array<Object>;
         private user:any;
-        //private $state: ng.ui.IStateService;
         
 
         constructor($http: { get: (url: string) => Promise<any>; },private $state: ng.ui.IStateService){
-            
             this.users=new Array<Object>();
-            $http.get('././././data/db/user.json').then((res)=>{
+            $http.get('http://localhost:8081/categories').then((res)=>{
                 this.users=res.data;
                 
             });
@@ -31,8 +29,6 @@ module app{
             else{
                 alert("Dang nhap thanh cong");
                 this.user=this.check_login(this.internshipId,this.password);
-                
-                //console.log(this.user);
                 this.$state.go('mainpage');
             }
 
@@ -50,44 +46,9 @@ module app{
                     return this.users[i];
                 }
                     
-                 
-
              }
              return false;
         }
-        
-
-        // function($scope: { users: any;check_login:any; login:any;internshipId:any ; password:any;profile:any},$http: { get: (arg0: string) => Promise<any>; }){
-        //     $scope.check_login=false;
-        //     $http.get('././././data/db/user.json').then(function(res){
-        //         $scope.users=res.data;
-        //         console.log($scope.users);
-        //         //funtion login account
-
-        //         $scope.login=function(){
-        //             var check=get_login($scope.internshipId, $scope.password);
-        //             if(check){
-        //                 alert("Dang nhap thanh cong");
-        //                 $scope.check_login=true;
-        //                 $scope.profile=check;
-        //                 console.log($scope.profile);
-                        
-        //             }
-        //             else{
-        //                 alert("Thong tin tai khoan k hop le");
-        //             }
-        //         }
-        //         function get_login(user: any,pass: any){
-        //             for(var i=0; i<$scope.users.length; i++){
-        //                 if($scope.users[i].internshipId==user && $scope.users[i].password==pass){
-        //                     return $scope.users[i];
-        //                 }
-        //             }
-        //             return false;
-        //         }
-        //     });
-            
-        // }
     }
     
 }

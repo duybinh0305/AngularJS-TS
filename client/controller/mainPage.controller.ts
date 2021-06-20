@@ -8,7 +8,8 @@ module app{
         private name:string;
         private date:string;
 
-        constructor(){
+        constructor(private $state: ng.ui.IStateService){
+            
             if(sessionStorage.getItem("name") && sessionStorage.getItem("date")){
 
                 this.name=sessionStorage.getItem("name");
@@ -19,6 +20,9 @@ module app{
                 k=datee.getTime() -dateb.getTime();
                 this.ngayConlai=Math.floor(k/(24*60*60*1000));
                 console.log(this.ngayConlai);
+            }
+            else{
+                this.$state.go('login');
             }
             
         }

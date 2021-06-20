@@ -1,47 +1,121 @@
-<div class="form" ng-controller="EditPageController">
-    <br /><br />
-    <form action="" method="post">
-        <div class="container">
-            <table>
-                <tr>
-                    <td>
-                        <label for="username"><b>Intership Id</b></label>
-                    </td>
-                    <td>
-                        <input type="text" name="internshipId" ng-model="vm.internshipId"  >
-                        <button type="button" ng-click="vm.search()">Search</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="pass"><b>Name</b></label>
-                    </td>
-                    <td>
-                        <input type="text" name="name" ng-model="vm.name" >
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="birthday"><b>Birthday</b></label>
-                    </td>
-                    <td>
-                        <input type="text" name="birthday" ng-model="vm.birthday" >
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="pass"><b>Ngay vao thuc tap</b></label>
-                    </td>
-                    <td>
-                        <input type="text" name="date" ng-model="vm.date" >
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><button type="button" ng-click="vm.update()">Update</button></td>
-                </tr>
-            </table>
-            
+<div class="test">
+    <teamplate-header></teamplate-header>
+    <div class="clear"></div>
+    <div class="main">
+        <teamplate-taskbar></teamplate-taskbar>
+        <div class="home">
+            <div class="form" ng-controller="EditPageController">
+                <br /><br />
+                <form action="" method="post">
+                    <div class="container">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="username"><b>Intership Id</b></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="internshipId" ng-model="vm.internshipId"
+                                        ng-disabled="vm.check_show">
+                                    {{vm.disId}}
+                                    <button type="button" ng-click="vm.search()" data-target="#{{vm.log}}"
+                                        data-toggle="modal">Search</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="pass"><b>Name</b></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="name" ng-model="vm.name">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="birthday"><b>Birthday</b></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="birthday" ng-model="vm.birthday">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="pass"><b>Ngay vao thuc tap</b></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="date" ng-model="vm.date">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button type="button" ng-show="vm.check_show" ng-click="vm.update()">Update</button>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Edit Modal HTML -->
+                        <div id="addEmployeeModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form action="" method="post">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Ket qua tim kiem</h4>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <label for="username"><b>Intership Id</b></label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="internshipId"
+                                                            ng-model="vm.internshipId" disabled>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label for="pass"><b>Name</b></label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="name" ng-model="vm.name" disabled>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label for="birthday"><b>Birthday</b></label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="birthday" ng-model="vm.birthday"
+                                                            disabled>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label for="pass"><b>Ngay vao thuc tap</b></label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="date" ng-model="vm.date" disabled>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input type="button" ng-model="all" class="btn btn-default"
+                                                data-dismiss="modal" value="OK">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
         </div>
-    </form>
+    </div>
+    <div class="footer"></div>
 </div>

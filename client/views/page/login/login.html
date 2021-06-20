@@ -1,39 +1,51 @@
-<div ng-controller="LoginPageController">
-    <div class="form">
-        <br /><br />
-        <form action="" method="post">
-            <div class="container">
-                <table>
-                    <tr>
-                        <td>
-                            <label for="username"><b>Intership Id</b></label>
-                        </td>
-                        <td>
-                            <input type="text" placeholder="Intership Id" name="internshipId" ng-model="vm.internshipId"
-                                required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="pass"><b>Password</b></label>
-                        </td>
-                        <td>
-                            <input type="password" placeholder="Enter Password" name="pass" ng-model="vm.password"
-                                required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" ng-click="vm.logout()">Logout</button>
-                        </td>
-                        <td>
-                            <button type="button" ng-click="vm.login()">Login</button>
-                        </td>
-                    </tr>
-                </table>
-
+<div class="test">
+    <teamplate-header></teamplate-header>
+    <div class="clear"></div>
+    <div class="main">
+        <div class="home">
+            <div ng-controller="LoginPageController">
+                <div class="form">
+                    <br /><br />
+                    <form action="" method="post">
+                        <div class="container">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="username"><b>Intership Id</b></label>
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="Intership Id" name="internshipId" ng-model="vm.internshipId"
+                                            required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="pass"><b>Password</b></label>
+                                    </td>
+                                    <td>
+                                        <input type="password" placeholder="Enter Password" name="pass" ng-model="vm.password"
+                                            required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <button type="button" ng-click="vm.login()">Login</button>
+                                    </td>
+                                </tr>
+                            </table>
+            
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
+    <div class="footer"></div>
 </div>
+
+
+
+
 
