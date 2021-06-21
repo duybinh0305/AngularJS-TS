@@ -3,6 +3,7 @@ module app{
 
     @Controller('EditPageController')
     export class EditPageCtrl{
+        private internDto:InternDto;
         private users:Array<Object>;
         private internshipId:string;
         private name:string;
@@ -15,7 +16,7 @@ module app{
             
             if(sessionStorage.getItem("name") && sessionStorage.getItem("date")){
                 this.users=new Array<Object>();
-                $http.get('././././data/db/user.json').then((res)=>{
+                $http.get('http://localhost:8081/getallintern').then((res)=>{
                     this.users=res.data;
                     
                 });
@@ -34,13 +35,13 @@ module app{
             for(var i = 0;i<this.users.length;i++) { 
                 const values = Object.keys(this.users[i]).map(key => this.users[i][key]);
 
-                if(values[1]==this.internshipId)
+                if(values[0]==this.internshipId)
                 {
                     this.check_show=true;
-                    this.internshipId=values[1];
-                    this.name=values[3];
-                    this.birthday=values[4];
-                    this.date=values[5];
+                    this.internshipId=values[0];
+                    this.name=values[1];
+                    this.birthday=values[2];
+                    this.date=values[3];
                     this.log="addEmployeeModal";
                      console.log(this.users[i]);
                      return;
@@ -54,16 +55,26 @@ module app{
 
         private update($http: { post: (url: string) => Promise<any>; }):void{
 
-            $http.post('././././data/db/user.json').then((res)=>{
-                this.users=res.data;
-                
-            });
-            
+            this.internDto= new InternDto();
+            this.internDto.internId=this.internshipId;
+            this.internDto.internName=this.name;
+            this.internDto.internBirthday=this.birthday;
+            this.internDto.internInCompanyDay=this.date;
+            this.internDto.internPassword=this.internshipId;
 
-            console.log(this.internshipId);
-            console.log(this.name);
-            console.log(this.birthday);
-            console.log(this.date);
+             $http.post('http://localhost:8081/updateintern').then((res)=>{
+                if(res.data){
+                    alert("Update thanh cong");
+                }
+            },
+            function (res) {
+                alert("Update that bai");
+                });
+            
+            
+            
+                    
+
         }
     }
     

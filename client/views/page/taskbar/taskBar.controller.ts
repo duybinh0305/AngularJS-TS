@@ -1,8 +1,8 @@
-module app{
-    'use strict';
+// module app{
+//     'use strict';
 
-    @Controller('TaskBarController')
-    export class TaskBarCtrl{
+//     @Controller('TaskBarController')
+//     export class TaskBarCtrl{
 
-    }
-}
+//     }
+// }

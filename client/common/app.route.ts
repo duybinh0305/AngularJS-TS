@@ -43,16 +43,6 @@ module app {
     }]);
 
 
-    angularModule.directive("teamplateHeader", function () {
-        return {
-            templateUrl: "/client/views/page/header/header.html"
-        };
-    });
-
-    angularModule.directive("teamplateTaskbar", function () {
-        return {
-            templateUrl: "/client/views/page/taskbar/taskbar.html"
-        };
-    });
+    
 
 }

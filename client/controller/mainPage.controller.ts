@@ -19,7 +19,6 @@ module app{
                 var k=0;
                 k=datee.getTime() -dateb.getTime();
                 this.ngayConlai=Math.floor(k/(24*60*60*1000));
-                console.log(this.ngayConlai);
             }
             else{
                 this.$state.go('login');
