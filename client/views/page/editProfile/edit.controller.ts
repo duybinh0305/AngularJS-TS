@@ -9,16 +9,20 @@ module app{
         private name:string;
         private birthday:string;
         private date:string;
+        private pass:string;
         private check_show:boolean=false;
         private log:string="";
+        private check:boolean=true;
+        
 
-        constructor($http: { get: (url: string) => Promise<any>; },private $state: ng.ui.IStateService){
+        constructor(private $http:ng.IHttpService,private $state: ng.ui.IStateService){
             
             if(sessionStorage.getItem("name") && sessionStorage.getItem("date")){
-                this.users=new Array<Object>();
-                $http.get('http://localhost:8081/getallintern').then((res)=>{
-                    this.users=res.data;
-                    
+                
+                $http.get('http://192.168.11.114:8081/getallintern').then((res)=>{
+                    this.users=new Array<Object>();
+                    this.users =res.data as Array<Object>;
+                    console.log(this.users);
                 });
             }
             else{
@@ -32,6 +36,8 @@ module app{
                 alert("hay nhap internshipId");
                 return;
             }
+            
+            
             for(var i = 0;i<this.users.length;i++) { 
                 const values = Object.keys(this.users[i]).map(key => this.users[i][key]);
 
@@ -42,38 +48,36 @@ module app{
                     this.name=values[1];
                     this.birthday=values[2];
                     this.date=values[3];
+                    this.pass=values[4];
                     this.log="addEmployeeModal";
-                     console.log(this.users[i]);
                      return;
                 }
                     
-                 
-
              }
              alert("khong tim thay ket qua nao");
         }
 
-        private update($http: { post: (url: string) => Promise<any>; }):void{
+        private update():void{
 
+            if(this.name==null || this.birthday==null || this.date==null)
+            {
+                alert("Cac truong khong duoc de trong");
+                return;
+            }
             this.internDto= new InternDto();
-            this.internDto.internId=this.internshipId;
-            this.internDto.internName=this.name;
-            this.internDto.internBirthday=this.birthday;
-            this.internDto.internInCompanyDay=this.date;
-            this.internDto.internPassword=this.internshipId;
+            this.internDto.id=this.internshipId;
+            this.internDto.name=this.name;
+            this.internDto.birthday=this.birthday;
+            this.internDto.getInCompanyDay=this.date;
+            this.internDto.password=this.pass;
 
-             $http.post('http://localhost:8081/updateintern').then((res)=>{
-                if(res.data){
-                    alert("Update thanh cong");
-                }
-            },
-            function (res) {
+            this.$http.post('http://192.168.11.114:8081/updateintern', JSON.stringify(this.internDto))
+            .then(function(response) {
+                alert("Update thanh cong");
+            }, 
+            function(response) { 
                 alert("Update that bai");
-                });
-            
-            
-            
-                    
+            });
 
         }
     }

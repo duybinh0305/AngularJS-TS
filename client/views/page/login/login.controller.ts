@@ -10,9 +10,11 @@ module app{
         
 
         constructor($http: { get: (url: string) => Promise<any>; },private $state: ng.ui.IStateService){
-            this.users=new Array<Object>();
-            $http.get('http://localhost:8081/getallintern').then((res)=>{
+            
+            $http.get('http://192.168.11.114:8081/getallintern').then((res)=>{
+                this.users=new Array<Object>();
                 this.users=res.data;
+                console.log(this.users);
             });
         }
         
