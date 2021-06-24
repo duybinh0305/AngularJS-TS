@@ -4,7 +4,7 @@
     <div class="main">
         <teamplate-taskbar></teamplate-taskbar>
         <div class="home">
-            <div class="form" ng-controller="EditPageController">
+            <div class="form">
                 <br /><br />
                 <form action="" method="post">
                     <div class="container">
@@ -16,7 +16,6 @@
                                 <td>
                                     <input type="text" name="internshipId" ng-model="vm.internshipId"
                                         ng-disabled="vm.check_show">
-                                    {{vm.disId}}
                                     <button type="button" ng-click="vm.search()" data-target="#{{vm.log}}"
                                         data-toggle="modal">Search</button>
                                 </td>
@@ -26,7 +25,7 @@
                                     <label for="pass"><b>Name</b></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="name" ng-model="vm.name">
+                                    <input type="text" name="name" ng-model="vm.name" ng-disabled="vm.notAdmin" >
                                 </td>
                             </tr>
                             <tr>
@@ -34,7 +33,7 @@
                                     <label for="birthday"><b>Birthday</b></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="birthday" ng-model="vm.birthday">
+                                    <input type="text" name="birthday" ng-model="vm.birthday" ng-disabled="vm.notAdmin" >
                                 </td>
                             </tr>
                             <tr>
@@ -42,7 +41,7 @@
                                     <label for="pass"><b>Ngay vao thuc tap</b></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="date" ng-model="vm.date">
+                                    <input type="text" name="date" ng-model="vm.date" ng-disabled="vm.notAdmin" >
                                 </td>
                             </tr>
                             <tr>
@@ -70,7 +69,7 @@
                                                     </td>
                                                     <td>
                                                         <input type="text" name="internshipId"
-                                                            ng-model="vm.internshipId" disabled>
+                                                            ng-model="vm.internshipIdForm" disabled>
 
                                                     </td>
                                                 </tr>
@@ -79,7 +78,7 @@
                                                         <label for="pass"><b>Name</b></label>
                                                     </td>
                                                     <td>
-                                                        <input type="text" name="name" ng-model="vm.name" disabled>
+                                                        <input type="text" name="name" ng-model="vm.nameForm" disabled>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -87,7 +86,7 @@
                                                         <label for="birthday"><b>Birthday</b></label>
                                                     </td>
                                                     <td>
-                                                        <input type="text" name="birthday" ng-model="vm.birthday"
+                                                        <input type="text" name="birthday" ng-model="vm.birthdayForm"
                                                             disabled>
                                                     </td>
                                                 </tr>
@@ -96,7 +95,7 @@
                                                         <label for="pass"><b>Ngay vao thuc tap</b></label>
                                                     </td>
                                                     <td>
-                                                        <input type="text" name="date" ng-model="vm.date" disabled>
+                                                        <input type="text" name="date" ng-model="vm.dateForm" disabled>
                                                     </td>
                                                 </tr>
 
@@ -105,7 +104,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <input type="button" ng-model="all" class="btn btn-default"
-                                                data-dismiss="modal" value="OK">
+                                                data-dismiss="modal" value="OK" ng-click="vm.OK()">
                                         </div>
                                     </form>
                                 </div>
@@ -118,4 +117,23 @@
         </div>
     </div>
     <div class="footer"></div>
+</div>
+<div style="display: none;" id="dialogedit" title="Trang thai tim kiem" >
+    {{vm.status}}
+    <br>
+    <br>
+    <p style="float: right;">
+        <button ng-click="vm.okDialogEdit()">OK</button>
+        <button ng-click="vm.cancleDialogEdit()">Cancle</button>
+    </p>
+</div>
+
+<div style="display: none;" id="dialogupdate" title="Trang thai cap nhat" >
+    {{vm.status}}
+    <br>
+    <br>
+    <p style="float: right;">
+        <button ng-click="vm.okDialogUpdate()">OK</button>
+        <button ng-click="vm.cancleDialogUpdate()">Cancle</button>
+    </p>
 </div>

@@ -7,33 +7,41 @@ module app{
         private password:string;
         private users:Array<Object>;
         private user:any;
-        
+        private status:string="";
 
-        constructor($http: { get: (url: string) => Promise<any>; },private $state: ng.ui.IStateService){
-            
+        constructor(private $http: ng.IHttpService,private $state: ng.ui.IStateService){
+
             $http.get('http://192.168.11.114:8081/getallintern').then((res)=>{
-                this.users=new Array<Object>();
-                this.users=res.data;
-                console.log(this.users);
-            });
+                if(res){
+                    this.users=new Array<Object>();
+                    this.users=res.data as Array<Object>;
+                    console.log(this.users);
+                }
+            });         
         }
         
         private login(): void {
+
+            $("#dialog").dialog({
+                autoOpen: true,
+                modal: true,
+                show: true,
+                
+            });
+
             if(this.internshipId==null || this.password==null){
-                alert("Vui lòng nhập thông tin");
+                this.status="Vui long nhap thong tin";
                 return;
             }
             if(!this.check_login(this.internshipId,this.password))
             {
-                alert("Sai thong tin dang nhap");
+                this.status="Sai thong tin dang nhap";
             }
             else{
-                alert("Dang nhap thanh cong");
+                this.status="Dang nhap thanh cong";
                 this.user=this.check_login(this.internshipId,this.password);
-                this.$state.go('mainpage');
-            }
-
-             
+                
+            }             
         }
         
         private check_login(id: any,pass: any){
@@ -44,13 +52,23 @@ module app{
                 {
                     sessionStorage.setItem("name",values[1]);
                     sessionStorage.setItem("date",values[3]);
-                    
+                    sessionStorage.setItem("isAdmin",values[5]);
                     return this.users[i];
-
                 }
-                    
              }
              return false;
+        }
+
+        //ok dialog
+        public okDialog(){
+            $("#dialog").dialog("close");
+            this.$state.go('mainpage');
+        }
+
+        //cancle dialog
+        public cancleDialog(){
+            $("#dialog").dialog("close");
+            this.$state.go('mainpage');
         }
     }
     

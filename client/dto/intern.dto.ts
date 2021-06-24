@@ -5,5 +5,6 @@ module app{
         birthday:string;
         getInCompanyDay:string;
         password:string;
+        isAdmin:string;
     }
 }

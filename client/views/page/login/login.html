@@ -3,7 +3,7 @@
     <div class="clear"></div>
     <div class="main">
         <div class="home">
-            <div ng-controller="LoginPageController">
+            <div>
                 <div class="form">
                     <br /><br />
                     <form action="" method="post">
@@ -31,11 +31,10 @@
                                     <td>
                                     </td>
                                     <td>
-                                        <button type="button" ng-click="vm.login()">Login</button>
+                                        <button  type="button" ng-click="vm.login()">Login</button>
                                     </td>
                                 </tr>
                             </table>
-            
                         </div>
                     </form>
                 </div>
@@ -43,6 +42,16 @@
         </div>
     </div>
     <div class="footer"></div>
+</div>
+<div style="display: none;" id="dialog" title="Trang thai dang nhap" >
+    {{vm.status}}
+    <br>
+    <br>
+    <p style="float: right;">
+        <button ng-click="vm.okDialog()">OK</button>
+        <button ng-click="vm.cancleDialog()">Cancle</button>
+    </p>
+    
 </div>
 
 

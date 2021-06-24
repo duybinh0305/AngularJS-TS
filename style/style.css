@@ -50,3 +50,39 @@
 .clear{
     clear: left;
 }
+/* 
+dialog */
+.ui-widget-content {
+    border: 0px !important;
+    background: white;
+    color: #040404;
+}
+
+element.style {
+    text-align: center;
+    color: blue;
+}
+
+.ui-dialog .ui-dialog-title {
+    color: black;
+}
+
+.ui-button .ui-button-text {
+    color: white;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+    height: 0px;
+}
+
+.ui-button-text-only .ui-button-text {
+    background-color: #866a72;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+    cursor: pointer;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+    padding: .0em 0em .0em .0em;
+}
