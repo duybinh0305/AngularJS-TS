@@ -8,8 +8,8 @@ module app{
         private name:string;
         private date:string;
 
-        constructor(private $state: ng.ui.IStateService){
-            
+        constructor(private $state: ng.ui.IStateService, $stateParams){
+            console.log("id: ",$stateParams.id);
             if(sessionStorage.getItem("name") && sessionStorage.getItem("date")){
 
                 this.name=sessionStorage.getItem("name");

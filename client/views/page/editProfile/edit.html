@@ -5,9 +5,13 @@
         <teamplate-taskbar></teamplate-taskbar>
         <div class="home">
             <div class="form">
-                <br /><br />
+                <br />
+                <button ng-click="vm.new()" class="btn btn-primary" ng-if="!vm.notAdmin">New Internship</button>
+                <br />
+                <br>
                 <form action="" method="post">
                     <div class="container">
+                        
                         <table>
                             <tr>
                                 <td>
@@ -15,9 +19,9 @@
                                 </td>
                                 <td>
                                     <input type="text" name="internshipId" ng-model="vm.internshipId"
-                                        ng-disabled="vm.check_show">
-                                    <button type="button" ng-click="vm.search()" data-target="#{{vm.log}}"
-                                        data-toggle="modal">Search</button>
+                                        ng-disabled="vm.check_add">
+                                    <!-- <button type="button" ng-click="vm.search()" data-target="#{{vm.log}}"
+                                        data-toggle="modal" disabled>Search</button> -->
                                 </td>
                             </tr>
                             <tr>
@@ -33,7 +37,8 @@
                                     <label for="birthday"><b>Birthday</b></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="birthday" ng-model="vm.birthday" ng-disabled="vm.notAdmin" >
+                                    <input type="text" name="birthday" ng-model="vm.birthday" ng-disabled="vm.notAdmin" ng-blur="vm.checkBirthday()"> <span style="color: red;" ng-if="!vm.check_birthday">Dinh dang khong hop le(yyyy/mm/dd)</span>
+                                    
                                 </td>
                             </tr>
                             <tr>
@@ -45,8 +50,35 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td><button type="button" ng-show="vm.check_show" ng-click="vm.update()">Update</button>
+                                <td>
+                                    <label for="pass"><b>Password</b></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="password" ng-model="vm.pass" ng-disabled="vm.notAdmin" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="pass"><b>Admin</b></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="isAdmin" ng-model="vm.isAdmin" ng-disabled="vm.notAdmin" >
+                                </td>
+                            </tr>
+                            <tr>
+                                
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    <span ng-show="vm.check_add">
+                                        <button class="btn btn-primary" type="button"  ng-click="vm.update()" ng-disabled="vm.check_edit">Update</button>
+                                        <button class="btn btn-danger" type="button"  ng-click="vm.edit(vm.internshipId)" ng-disabled="vm.check_edit">Reset</button>
+                                    </span>
+                                    <span ng-hide="vm.check_add">
+                                        <button class="btn btn-primary" type="button"  ng-click="vm.add()" >Add</button>
+                                        <button class="btn btn-danger" type="button"  ng-click="vm.new()" >Reset</button>
+                                    </span>
                                 </td>
                             </tr>
                         </table>
@@ -113,6 +145,60 @@
 
                     </div>
                 </form>
+<br>
+                <!-- form xuat danh sach -->
+                <button class="btn btn-primary" ng-click="vm.getAllUsers()">Refesh</i></button>
+                    <table style="text-align: center; border: 1px solid black;">
+                        <tr>
+                            <td>
+                                <b>Intership Id</b>
+                            </td>
+                            <td>
+                                <b>Name</b>
+                            </td>
+                            <td>
+                                <b>Birthday</b>
+                            </td>
+                            <td>
+                                <b>Day in company</b>
+                            </td>
+                            <td>
+                                <b>Password</b>
+                            </td>
+                            <td>
+                                <b>Admin</b>
+                            </td>
+                            <td>
+                                <b>Option</b>
+                            </td>
+                        </tr>
+                        <tr ng-repeat="u in vm.users">
+                            <td>
+                                <b>{{u.id}}</b>
+                            </td>
+                            <td>
+                                <b>{{u.name}}</b>
+                            </td>
+                            <td>
+                                <b>{{u.birthday}}</b>
+                            </td>
+                            <td>
+                                <b>{{u.getInCompanyDay}}</b>
+                            </td>
+                            <td>
+                                <b>{{u.password}}</b>
+                            </td>
+                            <td>
+                                <b>{{u.isAdmin}}</b>
+                            </td>
+
+                            <td>
+                                <button class="btn-primary" ng-click="vm.edit(u.id)">Edit</i></button>
+                                <button class="btn-danger" ng-click="vm.delete(u.id)">Delete</i></button>
+                            </td>
+                        </tr>
+                        
+                    </table>
             </div>
         </div>
     </div>
@@ -134,6 +220,25 @@
     <br>
     <p style="float: right;">
         <button ng-click="vm.okDialogUpdate()">OK</button>
-        <button ng-click="vm.cancleDialogUpdate()">Cancle</button>
+    </p>
+</div>
+
+
+<div style="display: none;" id="dialogdelete" title="Xoa ?" >
+    Ban chac chan muon xoa ?
+    <br>
+    <br>
+    <p style="float: right;">
+        <button ng-click="vm.okDialogDelete()">OK</button>
+        <button ng-click="vm.cancleDialogDelete()">Cancle</button>
+    </p>
+</div>
+
+<div style="display: none;" id="statusdelete" title="Trang thai xoa" >
+    {{vm.statusDelete}}    
+<br>
+    <br>
+    <p style="float: right;">
+        <button ng-click="vm.okDialogStatusDelete()" class="btn btn-primary">OK</button>
     </p>
 </div>

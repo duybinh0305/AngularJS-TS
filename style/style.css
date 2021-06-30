@@ -1,6 +1,6 @@
 
 .test{
-    height: 600px;
+    height: auto;
     width: 90%;
     font-family: "Times New Roman", Times, serif;
     margin: 0 auto;
@@ -23,7 +23,7 @@
 }
 
 .main{
-    height: 68%;
+    height: 600px;
     width: 100%;
     margin-top: 10px;
     border: 1px solid black;

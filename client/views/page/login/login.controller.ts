@@ -8,6 +8,7 @@ module app{
         private users:Array<Object>;
         private user:any;
         private status:string="";
+        private test:string="nene";
 
         constructor(private $http: ng.IHttpService,private $state: ng.ui.IStateService){
 
@@ -62,13 +63,20 @@ module app{
         //ok dialog
         public okDialog(){
             $("#dialog").dialog("close");
-            this.$state.go('mainpage');
+            if(this.check_login(this.internshipId,this.password))
+            {
+                this.$state.go('mainpage',{id:this.internshipId});
+            }
+            
         }
 
         //cancle dialog
         public cancleDialog(){
             $("#dialog").dialog("close");
-            this.$state.go('mainpage');
+            if(this.check_login(this.internshipId,this.password))
+            {
+                this.$state.go('mainpage',{id:this.internshipId});
+            }
         }
     }
     

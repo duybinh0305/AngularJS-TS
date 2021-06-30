@@ -13,6 +13,9 @@ module app {
         let mainpage = {
             name: 'mainpage',
             url: '/mainpage',
+            params:{
+                id:null
+            },
             templateUrl: '/client/views/mainPage.html',
             controller: 'MainPageController',
             controllerAs: 'vm'
@@ -42,7 +45,11 @@ module app {
         $urlRouterProvider.otherwise('login');
     }]);
 
+    angular.module('app').filter('upper',() =>{
+        return function (item) {
+            return item.toUpperCase();
+        };
+    });
 
-    
 
 }
